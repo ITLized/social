@@ -1,0 +1,6 @@
+itlized_social_endpoint:
+    pattern:  /social/auth
+    defaults: { _controller: ItlizedSocialBundle:Social:auth }
+itlized_social_connect:
+    pattern:  /social/connect/{provider}
+    defaults: { _controller: ItlizedSocialBundle:Social:connect }

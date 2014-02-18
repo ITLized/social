@@ -1,0 +1,10 @@
+parameters:
+#    itlized_social.example.class: Itlized\Bundle\SocialBundle\Example
+
+services:
+#    itlized_social.example:
+#        class: %itlized_social.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    hybridauth:
+        class: Itlized\Bundle\SocialBundle\Component\Auth
+        arguments: [ %itlized_social% , @router ]
