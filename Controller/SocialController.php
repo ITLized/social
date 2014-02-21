@@ -3,7 +3,6 @@
 namespace Itlized\Bundle\SocialBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use \Hybrid_Endpoint;
 use Symfony\Component\HttpFoundation\Request;
 
 class SocialController extends Controller
@@ -20,7 +19,7 @@ class SocialController extends Controller
         /** @var \Hybrid_Auth $hybridAuth */
         $hybridAuth = $this->get('hybridauth');
         $adapter = $hybridAuth->authenticate($provider);
-        $this->postProcess($adapter);
+        return $this->postProcess($request, $adapter);
     }
 
     /**
@@ -28,7 +27,7 @@ class SocialController extends Controller
      */
     public function authAction()
     {
-        Hybrid_Endpoint::process();
+        \Hybrid_Endpoint::process();
     }
 
     /**
@@ -37,7 +36,7 @@ class SocialController extends Controller
      *
      * @param Request $request
      */
-    private function preProcess(Request $request)
+    protected function preProcess(Request $request)
     {
 
     }
@@ -46,9 +45,10 @@ class SocialController extends Controller
      * Things to do AFTER connected.
      * Extend this class then overwrite this method to implement your own logic
      *
+     * @param Request $request
      * @param \Hybrid_Provider_Adapter $adapter
      */
-    private function postProcess(\Hybrid_Provider_Adapter $adapter)
+    protected function postProcess(Request $request, \Hybrid_Provider_Adapter $adapter)
     {
         $user = $adapter->getUserProfile();
         print_r($user);
