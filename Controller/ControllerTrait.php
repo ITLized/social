@@ -2,10 +2,9 @@
 
 namespace Itlized\Bundle\SocialBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class SocialController extends Controller
+trait ControllerTrait
 {
     /**
      * Action to handle social connect request

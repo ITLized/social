@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": "~5.4",
         "symfony/framework-bundle": "~2.0",
         "itlized/hybridauth": "~2.1"
     },
